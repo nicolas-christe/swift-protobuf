@@ -70,7 +70,7 @@ let package = Package(
         name: "SwiftProtobufPlugin",
         capability: .buildTool(),
         dependencies: [
-            "protoc-gen-swift"
+            "protoc-gen-swift", "protoc"
         ]
     ),
     .testTarget(
@@ -84,6 +84,10 @@ let package = Package(
     .testTarget(
         name: "protoc-gen-swiftTests",
         dependencies: ["protoc-gen-swift", "SwiftProtobufTestHelpers"]
+    ),
+    .binaryTarget(
+        name: "protoc",
+        path: "Plugins/SwiftProtobufPlugin/protoc.artifactbundle"
     ),
   ],
   swiftLanguageVersions: [.v5]
